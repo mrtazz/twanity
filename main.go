@@ -59,11 +59,13 @@ func main() {
 		fmt.Printf("twanity.%s.following %d %d\n", username, result.FriendsCount, timestamp)
 		fmt.Printf("twanity.%s.followers %d %d\n", username, result.FollowersCount, timestamp)
 		fmt.Printf("twanity.%s.tweets %d %d\n", username, result.StatusesCount, timestamp)
+		fmt.Printf("twanity.%s.favourites %d %d\n", username, result.FavouritesCount, timestamp)
 
 	} else {
 		fmt.Printf("Getting twitter stats for %s...\n", username)
 		fmt.Printf("Following: %d\n", result.FriendsCount)
 		fmt.Printf("Followers: %d\n", result.FollowersCount)
 		fmt.Printf("Tweets: %d\n", result.StatusesCount)
+		fmt.Printf("Favourites: %d\n", result.FavouritesCount)
 	}
 }
