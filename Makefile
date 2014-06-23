@@ -10,5 +10,5 @@ golint:
 	go install github.com/golang/lint/golint
 
 lint: golint
-	golint main.go
+	${GOPATH}/bin/golint main.go
 
