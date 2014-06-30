@@ -18,6 +18,7 @@ func main() {
 		access_secret   = flag.String("accesstokensecret", "", "app access token secret")
 		show_help       = flag.Bool("h", false, "show this dialog")
 		graphite        = flag.Bool("graphite", false, "print stats in Graphite format")
+		cacti           = flag.Bool("cacti", false, "print stats in Cacti format")
 	)
 
 	conf, _ := globalconf.New("twanity")
@@ -61,6 +62,13 @@ func main() {
 		fmt.Printf("twanity.%s.tweets %d %d\n", username, result.StatusesCount, timestamp)
 		fmt.Printf("twanity.%s.favourites %d %d\n", username, result.FavouritesCount, timestamp)
 		fmt.Printf("twanity.%s.listed %d %d\n", username, result.ListedCount, timestamp)
+	} else if *cacti {
+		fmt.Printf("twanity.%s.following:%d ", username, result.FriendsCount)
+		fmt.Printf("twanity.%s.followers:%d ", username, result.FollowersCount)
+		fmt.Printf("twanity.%s.tweets:%d ", username, result.StatusesCount)
+		fmt.Printf("twanity.%s.favourites:%d ", username, result.FavouritesCount)
+		fmt.Printf("twanity.%s.listed:%d ", username, result.ListedCount)
+		fmt.Printf("\n")
 
 	} else {
 		fmt.Printf("Getting twitter stats for %s...\n", username)
